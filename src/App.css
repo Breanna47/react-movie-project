@@ -1,107 +1,236 @@
 #root {
   width: 100%;
+  min-height: 100vh;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+}
+
 body {
   margin: 0;
+  width: 100%;
+  min-width: 320px;
   background-color: #e9e9e9;
   font-family: Arial, sans-serif;
   color: #242424;
 }
 
-/* ================================
+/* =================================
    HOME PAGE
-================================ */
+================================= */
 
 .app {
   min-height: 100vh;
-  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.app h1 {
+/* =================================
+   NAVIGATION
+================================= */
+
+.navbar {
+  width: 100%;
+  background-color: #252525;
+  color: white;
+}
+
+.navbar__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.navbar__text {
+  color: #cccccc;
+  font-size: 15px;
+}
+
+/* =================================
+   MAIN CONTENT
+================================= */
+
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 24px 80px;
+  flex: 1;
+}
+
+.main-content h1 {
+  margin: 0 0 35px;
   text-align: center;
-  margin-bottom: 30px;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
 }
 
-/* ================================
+/* =================================
    SEARCH
-================================ */
+================================= */
 
 .search-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .search-container input {
-  width: 400px;
+  width: min(400px, 100%);
   height: 44px;
   padding: 0 12px;
+
   border: 2px solid #242424;
   border-radius: 4px;
+
   font-size: 16px;
 }
 
 .search-container button {
   height: 44px;
   padding: 0 20px;
+
   border: 2px solid #242424;
   border-radius: 4px;
+
   background-color: bisque;
+
   font-size: 16px;
   font-weight: 600;
+
   cursor: pointer;
+
+  white-space: nowrap;
 }
 
 .search-container button:hover {
   opacity: 0.8;
 }
 
-/* ================================
-   MOVIE GRID
-================================ */
+/* =================================
+   SORT
+================================= */
 
-.movie-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1000px;
-  margin: 0 auto;
+.sort-select {
+  display: block;
+
+  width: 190px;
+
+  margin: 0 auto 40px;
+
+  padding: 10px 14px;
+
+  border: 2px solid #242424;
+  border-radius: 4px;
+
+  background-color: white;
+  color: #242424;
+
+  font-size: 15px;
+
+  cursor: pointer;
 }
 
-/* ================================
+.sort-select:focus {
+  outline: none;
+  border-color: #7342d6;
+}
+
+/* =================================
+   MOVIE GRID
+================================= */
+
+.movie-grid {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+/* =================================
    MOVIE CARD
-================================ */
+================================= */
 
 .movie-card {
+  min-width: 0;
+
   background-color: white;
+
   border-radius: 8px;
+
   overflow: hidden;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
   text-decoration: none;
+
   color: inherit;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .movie-poster {
   width: 100%;
-  height: 420px;
+
+  aspect-ratio: 2 / 3;
+
+  height: auto;
+
   object-fit: cover;
+
   display: block;
 }
 
 .movie-poster--empty {
-  height: 420px;
+  width: 100%;
+
+  aspect-ratio: 2 / 3;
+
+  height: auto;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   background-color: #cccccc;
+
   color: #555555;
+
   font-size: 18px;
 }
 
@@ -111,30 +240,48 @@ body {
 
 .movie-info h2 {
   margin: 0 0 8px;
+
   font-size: 20px;
+
+  line-height: 1.3;
 }
 
 .movie-info p {
   margin: 0;
+
   color: #666666;
+
+  line-height: 1.5;
 }
 
-/* ================================
+/* =================================
    HOME LOADING
-================================ */
+================================= */
 
 .loading {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  width: 100%;
   max-width: 1000px;
+
   margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
 }
 
 .loading-card {
-  height: 480px;
+  width: 100%;
+
+  aspect-ratio: 2 / 3;
+
+  height: auto;
+
   border-radius: 8px;
+
   background-color: #d1d1d1;
+
   animation: pulse 1.2s ease-in-out infinite;
 }
 
@@ -152,33 +299,93 @@ body {
   }
 }
 
-/* ==================================================
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+  width: 100%;
+
+  background-color: #252525;
+
+  color: white;
+
+  margin-top: auto;
+}
+
+.footer__container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 30px 24px;
+
+  text-align: center;
+}
+
+.footer__logo {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  padding: 6px 14px;
+
+  background-color: aquamarine;
+
+  color: #242424;
+
+  border-radius: 4px;
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+.footer__container p {
+  margin: 0;
+
+  color: #aaaaaa;
+
+  font-size: 14px;
+}
+
+/* =================================
    MOVIE DETAILS PAGE
-================================================== */
+================================= */
 
 .details-page {
   min-height: 100vh;
+
   background-color: #111111;
+
   color: white;
+
   padding: 32px 40px 80px;
 }
 
 .details-wrapper {
   width: 100%;
   max-width: 1400px;
+
   margin: 0 auto;
 }
 
-/* ================================
+/* =================================
    BACK BUTTON
-================================ */
+================================= */
 
 .back-button {
   display: inline-block;
+
   margin-bottom: 35px;
+
   color: white;
+
   text-decoration: none;
+
   font-size: 16px;
+
   font-weight: 600;
 }
 
@@ -186,56 +393,84 @@ body {
   text-decoration: underline;
 }
 
-/* ================================
-   MAIN MOVIE LAYOUT
-================================ */
+/* =================================
+   MOVIE DETAILS
+================================= */
 
 .movie-details {
+  width: 100%;
+
   display: grid;
-  grid-template-columns: 350px minmax(0, 1fr);
-  gap: 70px;
+
+  grid-template-columns: minmax(240px, 350px) minmax(0, 1fr);
+
+  gap: clamp(30px, 5vw, 70px);
+
   align-items: start;
 }
 
-/* ================================
-   POSTER
-================================ */
+/* =================================
+   DETAILS POSTER
+================================= */
 
 .movie-details__poster {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
 }
 
 .movie-details__poster img {
-  width: 350px;
-  height: 525px;
+  width: 100%;
+
+  aspect-ratio: 2 / 3;
+
+  height: auto;
+
   object-fit: cover;
+
   display: block;
+
   border-radius: 8px;
+
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* ================================
-   MOVIE CONTENT
-================================ */
+/* =================================
+   DETAILS CONTENT
+================================= */
 
 .movie-details__content {
   width: 100%;
+
   max-width: 850px;
+
+  min-width: 0;
+
   padding-top: 5px;
 }
 
 .movie-details__content h1 {
   margin: 0 0 15px;
-  font-size: 52px;
+
+  font-size: clamp(34px, 5vw, 52px);
+
   line-height: 1.1;
+
   color: white;
+
+  overflow-wrap: anywhere;
 }
 
 .movie-details__meta {
   display: flex;
-  gap: 18px;
+
+  flex-wrap: wrap;
+
+  gap: 12px 18px;
+
   margin-bottom: 25px;
+
   color: #aaaaaa;
+
   font-size: 16px;
 }
 
@@ -245,23 +480,35 @@ body {
 
 .movie-details__meta span:not(:last-child)::after {
   content: "•";
+
   position: absolute;
+
   right: -12px;
+
   color: #666666;
 }
 
-/* ================================
+/* =================================
    RATING
-================================ */
+================================= */
 
 .movie-details__rating {
   display: inline-flex;
+
   align-items: center;
+
+  flex-wrap: wrap;
+
   gap: 8px;
+
   padding: 12px 16px;
+
   margin-bottom: 35px;
+
   background-color: #222222;
+
   border-radius: 6px;
+
   font-size: 18px;
 }
 
@@ -273,9 +520,9 @@ body {
   color: #999999;
 }
 
-/* ================================
-   SECTIONS
-================================ */
+/* =================================
+   DETAILS SECTIONS
+================================= */
 
 .movie-details__section {
   margin-top: 35px;
@@ -283,200 +530,488 @@ body {
 
 .movie-details__section h2 {
   margin: 0 0 12px;
+
   font-size: 22px;
+
   color: white;
 }
 
 .movie-details__section > p {
+  width: 100%;
   max-width: 800px;
+
   margin: 0;
+
   color: #d0d0d0;
+
   font-size: 17px;
+
   line-height: 1.8;
+
+  overflow-wrap: anywhere;
 }
 
-/* ================================
-   MOVIE INFORMATION GRID
-================================ */
+/* =================================
+   INFORMATION GRID
+================================= */
 
 .movie-details__info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
-  gap: 20px 40px;
-  margin-top: 20px;
+  width: 100%;
   max-width: 850px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px 40px;
+
+  margin-top: 20px;
 }
 
 .movie-details__info-grid div {
+  min-width: 0;
+
   padding-bottom: 15px;
+
   border-bottom: 1px solid #333333;
 }
 
 .movie-details__info-grid span {
   display: block;
+
   margin-bottom: 6px;
+
   color: #888888;
+
   font-size: 13px;
+
   font-weight: 600;
+
   text-transform: uppercase;
+
   letter-spacing: 0.5px;
 }
 
 .movie-details__info-grid p {
   margin: 0;
+
   color: #eeeeee;
+
   font-size: 15px;
+
   line-height: 1.5;
+
+  overflow-wrap: anywhere;
 }
 
-/* ==================================================
+/* =================================
    DETAILS LOADING
-================================================== */
+================================= */
 
 .details-loading {
-  display: grid;
-  grid-template-columns: 350px minmax(0, 1fr);
-  gap: 70px;
   width: 100%;
   max-width: 1400px;
+
   margin: 70px auto;
+
+  display: grid;
+
+  grid-template-columns: minmax(240px, 350px) minmax(0, 1fr);
+
+  gap: clamp(30px, 5vw, 70px);
 }
 
 .details-loading-poster {
-  width: 350px;
-  height: 525px;
+  width: 100%;
+  max-width: 350px;
+
+  aspect-ratio: 2 / 3;
+
+  height: auto;
+
   border-radius: 8px;
+
   background-color: #222222;
+
   animation: pulse 1.2s ease-in-out infinite;
 }
 
 .details-loading-info {
+  width: 100%;
+
   padding-top: 10px;
 }
 
 .skeleton {
   background-color: #222222;
+
   border-radius: 6px;
+
   animation: pulse 1.2s ease-in-out infinite;
 }
 
 .skeleton-title {
   width: 60%;
+
   height: 55px;
+
   margin-bottom: 25px;
 }
 
 .skeleton-meta {
   width: 35%;
+
   height: 20px;
+
   margin-bottom: 35px;
 }
 
 .skeleton-line {
   width: 90%;
+
   height: 18px;
+
   margin-bottom: 15px;
 }
 
-/* ==================================================
+/* =================================
    TABLET
-================================================== */
+   901px - 1100px
+================================= */
 
-@media (max-width: 900px) {
-  .details-page {
-    padding: 25px 25px 60px;
+@media (max-width: 1100px) {
+  .main-content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .movie-grid,
+  .loading {
+    max-width: 900px;
   }
 
   .movie-details {
-    grid-template-columns: 250px minmax(0, 1fr);
-    gap: 35px;
+    grid-template-columns: 280px minmax(0, 1fr);
+
+    gap: 40px;
   }
 
   .movie-details__poster {
-    width: 250px;
+    max-width: 280px;
   }
 
-  .movie-details__poster img {
-    width: 250px;
-    height: 375px;
+  .details-loading {
+    grid-template-columns: 280px minmax(0, 1fr);
+
+    gap: 40px;
+  }
+
+  .details-loading-poster {
+    max-width: 280px;
+  }
+}
+
+/* =================================
+   TABLET
+   701px - 900px
+================================= */
+
+@media (max-width: 900px) {
+  .main-content {
+    padding: 40px 24px 60px;
+  }
+
+  .movie-grid,
+  .loading {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    max-width: 700px;
+  }
+
+  .movie-details {
+    grid-template-columns: 240px minmax(0, 1fr);
+
+    gap: 30px;
+  }
+
+  .movie-details__poster {
+    max-width: 240px;
   }
 
   .movie-details__content h1 {
     font-size: 38px;
   }
 
+  .movie-details__info-grid {
+    gap: 18px 25px;
+  }
+
+  .details-page {
+    padding: 28px 24px 60px;
+  }
+
   .details-loading {
-    grid-template-columns: 250px minmax(0, 1fr);
-    gap: 35px;
+    grid-template-columns: 240px minmax(0, 1fr);
+
+    gap: 30px;
   }
 
   .details-loading-poster {
-    width: 250px;
-    height: 375px;
+    max-width: 240px;
   }
 }
 
-/* ==================================================
+/* =================================
    MOBILE
-================================================== */
+   0px - 700px
+================================= */
 
 @media (max-width: 700px) {
-  .movie-grid,
-  .loading {
-    grid-template-columns: 1fr;
-    max-width: 350px;
+  .navbar__container {
+    padding: 16px 20px;
+  }
+
+  .navbar__logo {
+    font-size: 20px;
+  }
+
+  .navbar__text {
+    font-size: 13px;
+  }
+
+  .main-content {
+    padding: 35px 20px 55px;
+  }
+
+  .main-content h1 {
+    font-size: 30px;
+
+    margin-bottom: 28px;
   }
 
   .search-container {
     flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 16px;
   }
 
   .search-container input {
     width: 100%;
-    max-width: 400px;
+
+    height: 46px;
   }
 
   .search-container button {
     width: 120px;
+
+    height: 44px;
+  }
+
+  .sort-select {
+    width: 190px;
+
+    margin-bottom: 30px;
+  }
+
+  .movie-grid,
+  .loading {
+    grid-template-columns: 1fr;
+
+    max-width: 380px;
+
+    gap: 20px;
+  }
+
+  .movie-info h2 {
+    font-size: 19px;
+  }
+
+  .footer__container {
+    padding: 25px 20px;
+  }
+
+  .footer__logo {
+    font-size: 18px;
   }
 
   .details-page {
-    padding: 20px;
+    padding: 20px 18px 50px;
+  }
+
+  .back-button {
+    margin-bottom: 25px;
+
+    font-size: 15px;
   }
 
   .movie-details {
     grid-template-columns: 1fr;
+
     gap: 30px;
   }
 
   .movie-details__poster {
-    width: 280px;
+    width: min(280px, 100%);
+
+    max-width: 280px;
+
+    margin: 0 auto;
   }
 
-  .movie-details__poster img {
-    width: 280px;
-    height: 420px;
+  .movie-details__content {
+    max-width: none;
   }
 
   .movie-details__content h1 {
     font-size: 34px;
   }
 
+  .movie-details__meta {
+    gap: 10px 16px;
+
+    font-size: 15px;
+  }
+
+  .movie-details__rating {
+    margin-bottom: 25px;
+  }
+
+  .movie-details__section {
+    margin-top: 30px;
+  }
+
+  .movie-details__section > p {
+    font-size: 16px;
+
+    line-height: 1.7;
+  }
+
   .movie-details__info-grid {
     grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    max-width: none;
   }
 
   .details-loading {
     grid-template-columns: 1fr;
+
     gap: 30px;
+
+    margin: 40px auto;
   }
 
   .details-loading-poster {
-    width: 280px;
-    height: 420px;
+    width: min(280px, 100%);
+
+    max-width: 280px;
+
+    margin: 0 auto;
   }
 
   .details-loading-info {
     width: 100%;
+  }
+
+  .skeleton-title {
+    width: 80%;
+  }
+
+  .skeleton-meta {
+    width: 55%;
+  }
+
+  .skeleton-line {
+    width: 100%;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+   0px - 480px
+================================= */
+
+@media (max-width: 480px) {
+  .navbar__container {
+    padding: 15px 16px;
+  }
+
+  .navbar__logo {
+    font-size: 18px;
+  }
+
+  .navbar__text {
+    font-size: 12px;
+  }
+
+  .main-content {
+    padding: 30px 16px 45px;
+  }
+
+  .main-content h1 {
+    font-size: 27px;
+  }
+
+  .search-container input {
+    font-size: 15px;
+  }
+
+  .sort-select {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .movie-grid,
+  .loading {
+    max-width: 100%;
+  }
+
+  .movie-info {
+    padding: 14px;
+  }
+
+  .movie-info h2 {
+    font-size: 18px;
+  }
+
+  .details-page {
+    padding: 18px 15px 40px;
+  }
+
+  .movie-details__poster {
+    width: 240px;
+  }
+
+  .movie-details__content h1 {
+    font-size: 30px;
+  }
+
+  .movie-details__meta {
+    font-size: 14px;
+  }
+
+  .movie-details__rating {
+    font-size: 16px;
+
+    padding: 10px 13px;
+  }
+
+  .movie-details__rating strong {
+    font-size: 21px;
+  }
+
+  .movie-details__section h2 {
+    font-size: 20px;
+  }
+
+  .movie-details__section > p {
+    font-size: 15px;
+  }
+
+  .details-loading-poster {
+    width: 240px;
   }
 }
