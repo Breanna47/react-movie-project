@@ -57,87 +57,70 @@ function Home() {
     setMovies(sortedMovies);
   };
 
- return (
-  <div className="app">
-    {/* Navigation */}
-    <nav className="navbar">
-      <div className="navbar__container">
-        <a href="/" className="navbar__logo">
-          Movie Source
-        </a>
+  return (
+    <div className="app">
+      {/* Navigation */}
+      <nav className="navbar">
+        <div className="navbar__container">
+          <a href="/" className="navbar__logo">
+            Movie Source
+          </a>
 
-        <span className="navbar__text">
-          Movie Search
-        </span>
-      </div>
-    </nav>
-
-    {/* Main Content */}
-    <main className="main-content">
-      <h1>Find Your Next Movie</h1>
-
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search for a movie..."
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              getMovies();
-            }
-          }}
-        />
-
-        <button onClick={getMovies}>Search</button>
-      </div>
-
-      <select
-        className="sort-select"
-        onChange={handleSort}
-        defaultValue=""
-      >
-        <option value="" disabled>
-          Sort by...
-        </option>
-
-        <option value="newest">
-          Newest to Oldest
-        </option>
-
-        <option value="oldest">
-          Oldest to Newest
-        </option>
-      </select>
-
-      {loading && <Loading />}
-
-      {!loading && movies.length > 0 && (
-        <div className="movie-grid">
-          {movies.map((movie) => (
-            <MovieCard
-              key={movie.imdbID}
-              movie={movie}
-            />
-          ))}
+          <span className="navbar__text">Movie Search</span>
         </div>
-      )}
-    </main>
+      </nav>
 
-    {/* Footer */}
-    <footer className="footer">
-      <div className="footer__container">
-        <div className="footer__logo">
-          Movie Source
+      {/* Main Content */}
+      <main className="main-content">
+        <h1>Find Your Next Movie</h1>
+
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search for a movie..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                getMovies();
+              }
+            }}
+          />
+
+          <button onClick={getMovies}>Search</button>
         </div>
 
-        <p>
-          © 2026 Movie Source. All rights reserved.
-        </p>
-      </div>
-    </footer>
-  </div>
-);
+        <select className="sort-select" onChange={handleSort} defaultValue="">
+          <option value="" disabled>
+            Sort by...
+          </option>
+
+          <option value="newest">Newest to Oldest</option>
+
+          <option value="oldest">Oldest to Newest</option>
+        </select>
+
+        {loading && <Loading />}
+
+        {!loading && movies.length > 0 && (
+          <div className="movie-grid">
+            {movies.map((movie) => (
+              <MovieCard key={movie.imdbID} movie={movie} />
+            ))}
+          </div>
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer__container">
+          <div className="footer__logo">Movie Source</div>
+
+          <p>© 2026 Movie Source. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
 function App() {

@@ -20,9 +20,7 @@ body {
   color: #242424;
 }
 
-/* =================================
-   HOME PAGE
-================================= */
+/* HOME PAGE */
 
 .app {
   min-height: 100vh;
@@ -30,9 +28,7 @@ body {
   flex-direction: column;
 }
 
-/* =================================
-   NAVIGATION
-================================= */
+/* NAVIGATION */
 
 .navbar {
   width: 100%;
@@ -63,9 +59,7 @@ body {
   font-size: 15px;
 }
 
-/* =================================
-   MAIN CONTENT
-================================= */
+/* MAIN CONTENT */
 
 .main-content {
   width: 100%;
@@ -82,9 +76,7 @@ body {
   line-height: 1.2;
 }
 
-/* =================================
-   SEARCH
-================================= */
+/* SEARCH */
 
 .search-container {
   width: 100%;
@@ -127,9 +119,7 @@ body {
   opacity: 0.8;
 }
 
-/* =================================
-   SORT
-================================= */
+/* SORT */
 
 .sort-select {
   display: block;
@@ -156,9 +146,7 @@ body {
   border-color: #7342d6;
 }
 
-/* =================================
-   MOVIE GRID
-================================= */
+/* MOVIE GRID */
 
 .movie-grid {
   width: 100%;
@@ -173,9 +161,7 @@ body {
   gap: 24px;
 }
 
-/* =================================
-   MOVIE CARD
-================================= */
+/* MOVIE CARD */
 
 .movie-card {
   min-width: 0;
@@ -254,9 +240,7 @@ body {
   line-height: 1.5;
 }
 
-/* =================================
-   HOME LOADING
-================================= */
+/*  HOME LOADING */
 
 .loading {
   width: 100%;
@@ -299,9 +283,7 @@ body {
   }
 }
 
-/* =================================
-   FOOTER
-================================= */
+/* FOOTER */
 
 .footer {
   width: 100%;
@@ -350,9 +332,7 @@ body {
   font-size: 14px;
 }
 
-/* =================================
-   MOVIE DETAILS PAGE
-================================= */
+/* MOVIE DETAILS PAGE */
 
 .details-page {
   min-height: 100vh;
@@ -371,9 +351,7 @@ body {
   margin: 0 auto;
 }
 
-/* =================================
-   BACK BUTTON
-================================= */
+/* BACK BUTTON */
 
 .back-button {
   display: inline-block;
@@ -393,9 +371,7 @@ body {
   text-decoration: underline;
 }
 
-/* =================================
-   MOVIE DETAILS
-================================= */
+/* MOVIE DETAILS */
 
 .movie-details {
   width: 100%;
@@ -409,9 +385,7 @@ body {
   align-items: start;
 }
 
-/* =================================
-   DETAILS POSTER
-================================= */
+/* DETAILS POSTER */
 
 .movie-details__poster {
   width: 100%;
@@ -434,9 +408,7 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* =================================
-   DETAILS CONTENT
-================================= */
+/* DETAILS CONTENT */
 
 .movie-details__content {
   width: 100%;
@@ -488,9 +460,7 @@ body {
   color: #666666;
 }
 
-/* =================================
-   RATING
-================================= */
+/* RATING */
 
 .movie-details__rating {
   display: inline-flex;
@@ -520,9 +490,7 @@ body {
   color: #999999;
 }
 
-/* =================================
-   DETAILS SECTIONS
-================================= */
+/* DETAILS SECTIONS */
 
 .movie-details__section {
   margin-top: 35px;
@@ -551,9 +519,7 @@ body {
   overflow-wrap: anywhere;
 }
 
-/* =================================
-   INFORMATION GRID
-================================= */
+/* INFORMATION GRID */
 
 .movie-details__info-grid {
   width: 100%;
@@ -604,9 +570,7 @@ body {
   overflow-wrap: anywhere;
 }
 
-/* =================================
-   DETAILS LOADING
-================================= */
+/* DETAILS LOADING */
 
 .details-loading {
   width: 100%;
@@ -674,10 +638,7 @@ body {
   margin-bottom: 15px;
 }
 
-/* =================================
-   TABLET
-   901px - 1100px
-================================= */
+/* TABLET   901px - 1100px */
 
 @media (max-width: 1100px) {
   .main-content {
@@ -711,10 +672,7 @@ body {
   }
 }
 
-/* =================================
-   TABLET
-   701px - 900px
-================================= */
+/* TABLET   701px - 900px */
 
 @media (max-width: 900px) {
   .main-content {
@@ -761,10 +719,7 @@ body {
   }
 }
 
-/* =================================
-   MOBILE
-   0px - 700px
-================================= */
+/* MOBILE 0px - 700px */
 
 @media (max-width: 700px) {
   .navbar__container {
@@ -929,10 +884,7 @@ body {
   }
 }
 
-/* =================================
-   SMALL MOBILE
-   0px - 480px
-================================= */
+/* SMALL MOBILE   0px - 480px */
 
 @media (max-width: 480px) {
   .navbar__container {
