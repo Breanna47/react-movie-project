@@ -9,7 +9,7 @@ import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/react-movie-project">
+    <BrowserRouter>
       {" "}
       <App />
     </BrowserRouter>
