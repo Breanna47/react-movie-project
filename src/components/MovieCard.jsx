@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function MovieCard({ movie }) {
+  const [posterError, setPosterError] = useState(false);
+
+  const hasPoster = movie.Poster && movie.Poster !== "N/A" && !posterError;
+
   return (
     <Link to={`/movie/${movie.imdbID}`} className="movie-card">
-      {movie.Poster !== "N/A" ? (
-        <img src={movie.Poster} alt={movie.Title} className="movie-poster" />
+      {hasPoster ? (
+        <img
+          src={movie.Poster}
+          alt={`${movie.Title} poster`}
+          className="movie-poster"
+          onError={() => setPosterError(true)}
+        />
       ) : (
-        <div className="movie-poster movie-poster--empty">No Poster</div>
+        <div className="movie-poster movie-poster--empty">
+          No Poster Available
+        </div>
       )}
 
       <div className="movie-info">
