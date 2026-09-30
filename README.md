@@ -1,16 +1,44 @@
-# React + Vite
+# React Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[View Live Demo](https://react-movie-project-ecru.vercel.app)
 
-Currently, two official plugins are available:
+<img width="1586" height="769" alt="movie-project png" src="https://github.com/user-attachments/assets/f2dd638a-376f-4c85-a1ee-29dd4565def9" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+A responsive movie search application built with React and the OMDb API. Users can search for movies and open individual detail pages.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Movie search with API-powered results and poster cards.
+- Individual movie detail pages with a return-to-search link.
+- Responsive layouts with skeleton loading states and a spinner.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React
+- JavaScript
+- Vite
+- React Router
+- CSS
+- OMDb API
+- Vercel deployment
+
+## Run Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Breanna47/react-movie-project.git
+cd react-movie-project
+```
+
+Install dependencies and start the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+Open the local URL displayed in the terminal.
+
+An OMDb API key is required for movie requests. Configure it using the API key setup in the source code.
